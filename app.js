@@ -106,6 +106,9 @@ function showTemp(response) {
   let windspeed = response.data.wind.speed;
   let windspeedElement = document.querySelector("#wind-speed");
   windspeedElement.innerHTML = `${windspeed}`;
+  let description = response.data.weather[0].description;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = `${description}`;
 }
 
 axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
