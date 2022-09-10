@@ -193,7 +193,7 @@ h3 {
   margin-left: 20px;
 }
 
-.weather-icon {
+#weather-icon {
   display: block;
   margin-left: 300px;
   margin-top: -150px;

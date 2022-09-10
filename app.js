@@ -109,6 +109,11 @@ function showTemp(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = `${description}`;
+  let iconElement = document.querySelector("#weatherIcon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
