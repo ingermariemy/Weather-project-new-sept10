@@ -95,20 +95,22 @@ let city = "response.data.name";
 function showTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temp");
-  temperatureElement.innerHTML = `${temperature}°`;
   let effectiveTemp = Math.round(response.data.main.feels_like);
   let effectiveElement = document.querySelector("#E-temp");
-  effectiveElement.innerHTML = `${effectiveTemp}°`;
+
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector("#humidity-prec");
-  humidityElement.innerHTML = `${humidity}`;
   let windspeed = response.data.wind.speed;
   let windspeedElement = document.querySelector("#wind-speed");
-  windspeedElement.innerHTML = `${windspeed}`;
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = `${description}`;
   let iconElement = document.querySelector("#weatherIcon");
+
+  temperatureElement.innerHTML = `${temperature}°`;
+  effectiveElement.innerHTML = `${effectiveTemp}°`;
+  humidityElement.innerHTML = `${humidity}`;
+  windspeedElement.innerHTML = `${windspeed}`;
+  descriptionElement.innerHTML = `${description}`;
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
