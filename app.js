@@ -47,7 +47,6 @@ function formatDate(Today) {
 //Search event - displays the temperature in the city you are searching for//
 
 function search(event) {
-  alert("Looking for the weather forecast in selected location");
   event.preventDefault();
 
   let searchInput = document.querySelector("#searchBar-text");
