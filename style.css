@@ -53,19 +53,6 @@ h3 {
   position: absolute;
 }
 
-.sunRiseSet {
-  display: inline-block;
-  font-size: 20px;
-  font-family: "Lato", sans-serif;
-  color: #016fc5;
-}
-.sunrise {
-  font-size: 20px;
-}
-
-.sunset {
-  font-size: 20px;
-}
 .temp-text {
   font-family: "Lato", sans-serif;
   font-weight: 100;
