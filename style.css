@@ -3,6 +3,7 @@ h1 {
   display: inline;
   font-family: "Bebas Neue", cursive;
   text-decoration: underline;
+  margin-left: 20px;
 }
 
 h1:hover {
@@ -10,9 +11,10 @@ h1:hover {
 }
 .navbar {
   background: none;
-  display: inline-block;
+  display: flex;
   color: #ace0f9;
-  margin-top: -50px;
+  padding-bottom: 250px;
+  margin-top: -300px;
   margin-right: 40px;
   margin-left: 460px;
 }
@@ -40,6 +42,7 @@ h2 {
   font-size: large;
   text-align: left;
   margin-top: 5px;
+  margin-left: 20px;
   position: absolute;
 }
 
@@ -50,6 +53,7 @@ h3 {
   font-size: large;
   text-align: left;
   margin-top: 5px;
+  margin-left: 20px;
   position: absolute;
 }
 
