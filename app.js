@@ -44,6 +44,28 @@ function formatDate(Today) {
   h3.innerHTML = `${hours} : ${minutes}`;
 }
 
+//Fahrenheit conversion
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(fahrenheit);
+}
+
+function displayCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement = Math.round(celsiusTemperature);
+}
+
+let fahrenheit = document.querySelector("#currentF");
+fahrenheit.addEventListener("click", displayFahrenheit);
+
+let celsius = document.querySelector("#currentC");
+celsius.addEventListener("click", displayCelsius);
+
+let celsiusTemperature = null;
+
 //Search event - displays the temperature in the city you are searching for//
 
 function search(event) {
@@ -61,32 +83,7 @@ function search(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-//Convert celsius to farenheit - currently not working for some reason//
-{
-  function convertToCelsius(event) {
-    event.preventDefault();
-    let celsius = document.querySelector("#temp");
-    celsius.innerHTML = Math.round(((celsius.innerHTML - 31) * 5) / 9);
-  }
-  function convertToFahrenheit(event) {
-    let fahrenheit = document.querySelector("#temp");
-    fahrenheit.innerHTML = Math.round((fahrenheit.innerHTML * 9) / 5 + 31);
-  }
-
-  function changeToCelsius() {
-    let celsius = document.querySelector("#currentC");
-    celsius.addEventListener("click", convertToCelsius);
-  }
-
-  function changeToFahrenheit() {
-    let fahrenheitIcon = document.querySelector("#currentF");
-    fahrenheitIcon.addEventListener("click", convertToFahrenheit);
-  }
-
-  changeToCelsius();
-  changeToFahrenheit();
-  formatDate();
-}
+formatDate();
 
 let apiKey = "126b4c3109648af60d931bdfb6f221d1";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Oslo&units=metric&appid=126b4c3109648af60d931bdfb6f221d1`;
@@ -99,6 +96,8 @@ function showTemp(response) {
   let temperatureElement = document.querySelector("#temp");
   let effectiveTemp = Math.round(response.data.main.feels_like);
   let effectiveElement = document.querySelector("#E-temp");
+
+  let celsiusTemperature = response.data.main.temp;
 
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector("#humidity-prec");
