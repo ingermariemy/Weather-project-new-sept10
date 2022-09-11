@@ -84,8 +84,6 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 formatDate();
-displayFahrenheit();
-displayCelsius();
 
 let apiKey = "126b4c3109648af60d931bdfb6f221d1";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Oslo&units=metric&appid=126b4c3109648af60d931bdfb6f221d1`;
