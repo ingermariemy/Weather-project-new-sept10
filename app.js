@@ -93,6 +93,8 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Oslo&units=metri
 let city = "response.data.name";
 
 function showTemp(response) {
+  let h1 = document.querySelector("#searchCity");
+  h1.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temp");
   let effectiveTemp = Math.round(response.data.main.feels_like);
@@ -126,8 +128,6 @@ function showPosition(position) {
   let lon = position.coords.longitude;
   let apiKey = "126b4c3109648af60d931bdfb6f221d1";
   let apiLocUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `Your current location`;
 
   axios.get(`${apiLocUrl}&appid=${apiKey}`).then(showTemp);
 }
