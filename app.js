@@ -55,7 +55,7 @@ function displayFahrenheit(event) {
 function displayCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temp");
-  temperatureElement = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 let fahrenheit = document.querySelector("#currentF");
@@ -84,6 +84,8 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 formatDate();
+displayFahrenheit();
+displayCelsius();
 
 let apiKey = "126b4c3109648af60d931bdfb6f221d1";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Oslo&units=metric&appid=126b4c3109648af60d931bdfb6f221d1`;
@@ -97,7 +99,7 @@ function showTemp(response) {
   let effectiveTemp = Math.round(response.data.main.feels_like);
   let effectiveElement = document.querySelector("#E-temp");
 
-  let celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.main.temp;
 
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector("#humidity-prec");
@@ -137,3 +139,5 @@ function getCurrentPosition() {
 
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", getCurrentPosition);
+
+getCurrentPosition();
